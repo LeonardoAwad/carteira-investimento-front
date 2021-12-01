@@ -1,0 +1,30 @@
+<ngx-charts-advanced-pie-chart
+  *ngIf="mode == 'detalhado'"
+  [view]="[elementReference.offsetWidth - 15, 400]"
+  [results]="data"
+  [scheme]="colorScheme"
+>
+</ngx-charts-advanced-pie-chart>
+
+<ngx-charts-pie-chart
+  *ngIf="mode == 'data'"
+  [view]="[elementReference.offsetWidth - 15, 400]"
+  [results]="forDate"
+  [legend]="false"
+  [labels]="true"
+  [doughnut]="true"
+  [scheme]="colorScheme"
+>
+</ngx-charts-pie-chart>
+
+<ngx-charts-pie-chart
+  *ngIf="mode == 'simples'"
+  [view]="[elementReference.offsetWidth - 15, 400]"
+  [results]="data"
+  [legend]="true"
+  [legendPosition]="legendPosition.Below"
+  [labels]="false"
+  [scheme]="colorScheme"
+  [doughnut]="true"
+>
+</ngx-charts-pie-chart>

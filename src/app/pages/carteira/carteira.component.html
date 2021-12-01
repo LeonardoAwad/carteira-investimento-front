@@ -1,0 +1,67 @@
+<app-menu></app-menu>
+<section class="section-carteira pt-3">
+  <div class="row m-0" *ngIf="loaded">
+    <div class="col-12" #chart>
+      <app-graficos
+        [listaInvestimentos]="listaInvestimentos"
+        [elementReference]="chart"
+        [mode]="mode"
+      ></app-graficos>
+
+      <mat-form-field appearance="fill" class="mt-2 select-mode">
+        <mat-label>Modo de exibição</mat-label>
+        <mat-select [(ngModel)]="mode">
+          <mat-option value="simples">Simples</mat-option>
+          <mat-option value="data">Data</mat-option>
+          <mat-option value="detalhado">Detalhado</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <hr class="color-primary line" />
+    </div>
+    <div class="col-12 pt-2 pt-lg-0">
+      <app-tabela-investimento
+        (changes)="buscarInvestimento()"
+        [dataSource]="listaInvestimentos"
+      ></app-tabela-investimento>
+    </div>
+  </div>
+  <h2 class="pt-4 text-center color-primary">Adicionar Novo Investimento</h2>
+  <div class="form">
+    <mat-form-field appearance="fill">
+      <mat-label>Tipo de Renda</mat-label>
+      <mat-select [(ngModel)]="form.type" required>
+        <mat-option [value]="0"></mat-option>
+        <mat-option [value]="1">Renda Variavel</mat-option>
+        <mat-option [value]="2">Renda Fixa</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="d-flex px-1 column-value">
+      <mat-label>Valor</mat-label>
+      <input matInput type="number" [(ngModel)]="form.value" required />
+    </mat-form-field>
+    <div class="d-flex column-data">
+      <mat-form-field appearance="fill" class="form-date">
+        <mat-label>Data de Compra</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          [(ngModel)]="form.date"
+          required
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <button
+        class="mt-2"
+        mat-mini-fab
+        color="primary"
+        (click)="criarInvestimento()"
+        [disabled]="formValid()"
+      >
+        <mat-icon class="material-icons">add </mat-icon>
+      </button>
+    </div>
+  </div>
+</section>

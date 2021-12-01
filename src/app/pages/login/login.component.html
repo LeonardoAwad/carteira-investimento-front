@@ -1,0 +1,24 @@
+<div id="particles-js"></div>
+<div class="form-wrapper">
+  <div class="card-login">
+    <img
+      class="logo pb-2"
+      src="https://gorila.com.br/wp-content/uploads/LogoGorila.svg"
+    />
+    <mat-form-field appearance="fill" class="d-flex">
+      <mat-label>Usuario</mat-label>
+      <input
+        matInput
+        type="text"
+        autocomplete="off"
+        [(ngModel)]="user.Username"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="d-flex">
+      <mat-label>Senha</mat-label>
+      <input matInput type="password" [(ngModel)]="user.Password" />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="entrar()">Entrar</button>
+  </div>
+</div>

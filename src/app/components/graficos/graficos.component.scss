@@ -1,0 +1,41 @@
+:host::ng-deep {
+  .advanced-pie-legend
+    .legend-items-container
+    .legend-items
+    .legend-item
+    .item-value {
+    margin-top: 8px;
+  }
+
+  .advanced-pie-legend .legend-items-container .legend-items {
+    overflow-y: hidden;
+    overflow-x: auto;
+  }
+
+  .advanced-pie-legend
+    .legend-items-container
+    .legend-items::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 3px;
+  }
+
+  .advanced-pie-legend
+    .legend-items-container
+    .legend-items::-webkit-scrollbar {
+    width: 6px;
+    background: #f4f4f4;
+    height: 5px;
+    border-radius: 16px;
+  }
+
+  .advanced-pie-legend
+    .legend-items-container
+    .legend-items::-webkit-scrollbar-thumb {
+    background: #83838399;
+    border-radius: 3px;
+  }
+
+  .advanced-pie-legend .total-value {
+    padding-bottom: 10px;
+  }
+}
